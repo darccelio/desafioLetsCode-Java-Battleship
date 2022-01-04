@@ -24,6 +24,5 @@ public class Player {
     public void setTiros(String shotsPosition) {
         this.shotsFired.add(shotsPosition);
     }
-    //teste
 
 }
