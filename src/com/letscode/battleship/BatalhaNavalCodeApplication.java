@@ -1,4 +1,4 @@
-package com.letscode.batalhaNaval;
+package com.letscode.battleship;
 
 public class BatalhaNavalCodeApplication {
 
