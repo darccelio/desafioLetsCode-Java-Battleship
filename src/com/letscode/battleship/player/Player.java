@@ -17,21 +17,16 @@ public class Player {
         this.shipsPosition = new ArrayList<String>();
     }
 
-    public List<String> getShotsFired() {
-        return this.shotsFired;
-    }
+    public Player() {};
 
-    public void setShotsFired(String shotsPosition) {
-        this.shotsFired.add(shotsPosition);
-    }
 
-    public List<String> getShipsPosition() {
-        return shipsPosition;
-    }
-
-    public void setShipsPosition(List<String> shipsPosition) {
-        this.shipsPosition = shipsPosition;
-    }
+//    public void inputShipsOnBoard(  ) {
+//        //// TODO: 07/01/2022 chamar a classe tabuleiro para posicionar os navios
+//    }
+//
+//    public void playShotsFired() {
+//        //TODO: 07/01/2022  chamar a classe tabuleiro para posicionar os tiros
+//    }
 
     @Override
     public String toString() {
