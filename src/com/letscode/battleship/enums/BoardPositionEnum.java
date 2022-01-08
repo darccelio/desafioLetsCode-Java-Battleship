@@ -12,13 +12,13 @@ public enum BoardPositionEnum {
     I(8),
     J(9);
 
-    private Integer row;
+    private int row;
 
-    BoardPositionEnum(Integer row) {
+    BoardPositionEnum(int row) {
         this.row = row;
     }
 
-    public Integer getPosition() {
+    public int getPosition() {
         return row;
     }
 }
