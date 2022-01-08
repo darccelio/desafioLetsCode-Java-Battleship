@@ -7,8 +7,8 @@ public class BoardCell {
     private boolean hasShip;
     private boolean gotFire;
 
-    public BoardCell(int xPosition, int yPosition){
-        this.xPosition = xPosition;
+    public BoardCell(int xCoordinate, int yPosition){
+        this.xPosition = xCoordinate;
         this.yPosition = yPosition;
         this.hasShip = false;
         this.gotFire = false;
