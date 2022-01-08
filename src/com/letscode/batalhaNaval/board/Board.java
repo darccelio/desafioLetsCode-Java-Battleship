@@ -2,22 +2,22 @@ package com.letscode.batalhaNaval.board;
 
 public class Board {
 
-    int gridSize = 10;
-    int numberOfColumns = gridSize + 1;
+    final int gridSize = 10;
+    final int numberOfColumns = gridSize + 1;
     int numberOfCharacters = 1 + numberOfColumns * 4;
 
-    public void printDividerLine(){
+    private void printDividerLine(){
         for (int i = 1; i <= numberOfCharacters; i++){
             System.out.print("-");
         }
         System.out.print("\n");
     }
 
-    private void printCell(String id){
+    private static void printCell(String id){
         System.out.printf(" %S |", id);
     }
 
-    public void printLineLabel(){
+    private void printLineLabel(){
         System.out.print("|");
         printCell(" ");
         for (int i=0; i < gridSize; i++){
@@ -27,12 +27,36 @@ public class Board {
         System.out.print("\n");
     }
 
-    public void printGridLine(String id){
+    private void printGridLine(String id){
         System.out.print("|");
         printCell(id);
         for (int i = 0; i < gridSize; i++) {
-            printCell(" ");
+            printCell("~");
         }
         System.out.print("\n");
+    }
+
+    private String[] createColumnLabel(){
+        char[] columnLabelChar = new char[gridSize];
+        String[] columnLabelString = new String[gridSize];
+        for (int i = 0; i < gridSize; i++){
+            columnLabelChar[i] = (char)(65+i);
+            columnLabelString[i] = String.valueOf(columnLabelChar[i]);        }
+        return columnLabelString;
+    }
+
+    private void printGridBody(){
+        String[] columnLabel = createColumnLabel();
+        for (String label : columnLabel) {
+            printGridLine(label);
+            printDividerLine();
+        }
+    }
+
+    public void drawBoard(){
+        printDividerLine();
+        printLineLabel();
+        printDividerLine();
+        printGridBody();
     }
 }
