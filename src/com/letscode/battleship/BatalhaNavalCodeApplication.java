@@ -31,6 +31,8 @@ public class BatalhaNavalCodeApplication {
 
         }while(result != 0);
 
+        ReadInputs.closeScanner();
+
 
 
     }
