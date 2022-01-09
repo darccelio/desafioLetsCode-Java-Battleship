@@ -6,6 +6,9 @@ public class Board {
     final int numberOfColumns = gridSize + 1;
     int numberOfCharacters = 1 + numberOfColumns * 4;
 
+    public BoardCell[][] playerBoard = new BoardCell[gridSize][gridSize];
+
+
     private void printDividerLine(){
         for (int i = 1; i <= numberOfCharacters; i++){
             System.out.print("-");
