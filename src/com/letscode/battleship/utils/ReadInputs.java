@@ -41,6 +41,10 @@ public class ReadInputs {
         return Integer.parseInt(sc.nextLine());
     }
 
+    public static void closeScanner() {
+        return sc.close();
+    }
+
 
 
 
