@@ -42,9 +42,8 @@ public class ReadInputs {
     }
 
     public static void closeScanner() {
-        return sc.close();
+        sc.close();
     }
-
 
 
 
