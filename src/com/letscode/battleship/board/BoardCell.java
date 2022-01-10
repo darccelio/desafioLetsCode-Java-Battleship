@@ -2,28 +2,32 @@ package com.letscode.battleship.board;
 
 public class BoardCell {
 
-    private int ship;
-    private int fire;
+    final private int xPosition;
+    final private int yPosition;
+    private boolean hasShip;
+    private boolean gotFire;
 
-    public BoardCell(){
-        this.ship = 0;
-        this.fire = 0;
+    public BoardCell(int xCoordinate, int yPosition){
+        this.xPosition = xCoordinate;
+        this.yPosition = yPosition;
+        this.hasShip = false;
+        this.gotFire = false;
     }
 
-    public int hasShip() {
-        return ship;
+    public int getXPosition() {
+        return xPosition;
     }
 
-    public void setShip(int ship) {
-        this.ship = ship;
+    public int getYPosition() {
+        return yPosition;
     }
 
-    public int gotFire() {
-        return fire;
+    public void placeShip(){
+        this.hasShip = true;
     }
 
-    public void setFire(int fire) {
-        this.fire = fire;
+    public void fire(){
+        this.gotFire = true;
     }
 
 }
