@@ -25,4 +25,5 @@ public class BoardCell {
     public void setFire(int fire) {
         this.fire = fire;
     }
+
 }

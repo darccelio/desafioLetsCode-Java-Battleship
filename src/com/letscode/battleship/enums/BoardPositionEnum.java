@@ -21,4 +21,6 @@ public enum BoardPositionEnum {
     public int getPosition() {
         return row;
     }
+
+
 }
