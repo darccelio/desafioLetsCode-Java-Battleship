@@ -27,15 +27,21 @@ public class GameService {
     public static void bootstrapGame(int numberTurn){
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         String nameHumanPlayer;
 =======
+=======
+>>>>>>> parent of a344aa2 (ajustando consflitos com a main)
         System.out.println(numberTurn);
 >>>>>>> parent of a344aa2 (ajustando consflitos com a main)
 
         players = StartGameService.startPlayerInGame(numberTurn);
+<<<<<<< HEAD
 
         PrinterGame.numberOfTurn(numberTurn);
 
+=======
+>>>>>>> parent of a344aa2 (ajustando consflitos com a main)
 
         qttShips = ReadInputs.readQttInicialShips();
         System.out.println();

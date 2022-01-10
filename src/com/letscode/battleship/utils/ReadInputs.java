@@ -27,6 +27,7 @@ public class ReadInputs {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static int readPositionColumnShip(int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionColumnShips();
@@ -34,6 +35,8 @@ public class ReadInputs {
             PrinterGame.printerAlertMsgPositionColumnIncorrect();
         }
 =======
+=======
+>>>>>>> parent of a344aa2 (ajustando consflitos com a main)
     public static Integer readPositionColumnShip () {
         PrinterGame.printerMsgPositionColumnShips();
 >>>>>>> parent of a344aa2 (ajustando consflitos com a main)
@@ -50,6 +53,7 @@ public class ReadInputs {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static int readPositionColumnShot (int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionColumnShots();
@@ -57,6 +61,8 @@ public class ReadInputs {
             PrinterGame.printerAlertMsgPositionColumnIncorrect();
         }
 =======
+=======
+>>>>>>> parent of a344aa2 (ajustando consflitos com a main)
     public static Integer readPositionColumnShot () {
         PrinterGame.printerMsgPositionColumnShots();
 >>>>>>> parent of a344aa2 (ajustando consflitos com a main)
