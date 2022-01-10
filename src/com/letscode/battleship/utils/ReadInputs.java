@@ -11,7 +11,7 @@ public class ReadInputs {
         return sc.nextLine();
     }
 
-    public static Integer readQttInicialShips() {
+    public static int readQttInicialShips() {
         PrinterGame.printerQttInicialShips();
         return Integer.parseInt(sc.nextLine());
     }
@@ -21,7 +21,7 @@ public class ReadInputs {
         return sc.nextLine().toUpperCase();
     }
 
-    public static Integer readPositionColumnShip () {
+    public static int readPositionColumnShip () {
         PrinterGame.printerMsgPositionColumnShips();
         return Integer.parseInt(sc.nextLine());
     }
@@ -31,7 +31,7 @@ public class ReadInputs {
         return sc.nextLine().toUpperCase();
     }
 
-    public static Integer readPositionColumnShot () {
+    public static int readPositionColumnShot () {
         PrinterGame.printerMsgPositionColumnShots();
         return Integer.parseInt(sc.nextLine());
     }
@@ -41,6 +41,9 @@ public class ReadInputs {
         return Integer.parseInt(sc.nextLine());
     }
 
+    public static void closeScanner() {
+        sc.close();
+    }
 
 
 
