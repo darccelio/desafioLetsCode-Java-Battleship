@@ -1,9 +1,6 @@
 package com.letscode.battleship.game;
 
 import com.letscode.battleship.enums.BoardPositionEnum;
-import com.letscode.battleship.enums.TypeOfPlayerEnum;
-import com.letscode.battleship.player.BotPlayer;
-import com.letscode.battleship.player.HumanPlayer;
 import com.letscode.battleship.player.Player;
 import com.letscode.battleship.ship.Ship;
 import com.letscode.battleship.utils.PrinterGame;
@@ -19,7 +16,7 @@ public class GameService {
     protected static BoardPositionEnum addressInterimShip;
     protected static BoardPositionEnum addressInterimShot;
 
-    protected static Player[] players = new Player[2];
+    protected static Player[] players;
 
     protected static List<Integer> addressRowShips = new ArrayList<>();
     protected static List<Integer> addressColumnShips = new ArrayList<>();
@@ -29,24 +26,13 @@ public class GameService {
 
     public static void bootstrapGame(int numberTurn){
 
+<<<<<<< HEAD
         String nameHumanPlayer;
+=======
+        System.out.println(numberTurn);
+>>>>>>> parent of a344aa2 (ajustando consflitos com a main)
 
-        if(numberTurn == 1) {
-            PrinterGame.printerWelcomeMsg();
-
-            Player botPlayer = new BotPlayer("botPlayer", TypeOfPlayerEnum.PC_PLAYER.getDescription());
-            players[0] = botPlayer;
-
-            nameHumanPlayer = ReadInputs.readInputName();
-            Player humanPlayer = new HumanPlayer(nameHumanPlayer, TypeOfPlayerEnum.PLAYER.getDescription());
-            players[1] = humanPlayer;
-
-        }
-
-        Game game = new Game();
-        game.setIdTurn(numberTurn);
-        game.setBot(players[0]);
-        game.setPlayer(players[1]);
+        players = StartGameService.startPlayerInGame(numberTurn);
 
         PrinterGame.numberOfTurn(numberTurn);
 
