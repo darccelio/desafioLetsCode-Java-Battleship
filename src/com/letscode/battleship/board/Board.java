@@ -6,8 +6,18 @@ public class Board {
     final int numberOfColumns = gridSize + 1;
     int numberOfCharacters = 1 + numberOfColumns * 4;
 
+    String[] rowsOfBoard = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+
+
     public BoardCell[][] playerBoard = new BoardCell[gridSize][gridSize];
 
+    public String[] getRowsOfBoard() {
+        return rowsOfBoard;
+    }
+
+    public int getGridSize() {
+        return gridSize;
+    }
 
     private void printDividerLine(){
         for (int i = 1; i <= numberOfCharacters; i++){
@@ -62,4 +72,6 @@ public class Board {
         printDividerLine();
         printGridBody();
     }
+
+
 }

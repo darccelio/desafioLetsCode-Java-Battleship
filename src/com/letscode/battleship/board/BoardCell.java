@@ -29,4 +29,5 @@ public class BoardCell {
     public void fire(){
         this.gotFire = true;
     }
+
 }
