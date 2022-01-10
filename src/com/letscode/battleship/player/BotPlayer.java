@@ -7,11 +7,8 @@ public class BotPlayer extends Player implements IPlayer{
         super(namePlayer, typePlayer);
     }
 
-    public BotPlayer() {
-    }
-
     @Override
-    public void inputShipsOnBoard() {
+    public void inputShipsOnBoard(int idShip) {
     }
 
     @Override

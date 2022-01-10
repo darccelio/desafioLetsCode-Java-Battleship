@@ -11,28 +11,45 @@ public class ReadInputs {
         return sc.nextLine();
     }
 
-    public static Integer readQttInicialShips() {
+    public static int readQttInicialShips() {
         PrinterGame.printerQttInicialShips();
         return Integer.parseInt(sc.nextLine());
     }
 
-    public static String readPositionRowShip () {
-        PrinterGame.printerMsgPositionRowShips();
+    public static String readPositionRowShip (int flag) {
+        if(flag==1) {
+            PrinterGame.printerMsgPositionRowShips();
+        }else{
+            PrinterGame.printerAlertMsgPositionRowIncorrect();
+        }
+
         return sc.nextLine().toUpperCase();
     }
 
-    public static Integer readPositionColumnShip () {
-        PrinterGame.printerMsgPositionColumnShips();
+    public static int readPositionColumnShip(int flag) {
+        if(flag==1) {
+            PrinterGame.printerMsgPositionColumnShips();
+        } else{
+            PrinterGame.printerAlertMsgPositionColumnIncorrect();
+        }
         return Integer.parseInt(sc.nextLine());
     }
 
-    public static String readPositionRowShot() {
-        PrinterGame.printerMsgPositionRowShots();
+    public static String readPositionRowShot(int flag) {
+        if(flag==1) {
+            PrinterGame.printerMsgPositionRowShots();
+        }else{
+            PrinterGame.printerAlertMsgPositionRowIncorrect();
+        }
         return sc.nextLine().toUpperCase();
     }
 
-    public static Integer readPositionColumnShot () {
-        PrinterGame.printerMsgPositionColumnShots();
+    public static int readPositionColumnShot (int flag) {
+        if(flag==1) {
+            PrinterGame.printerMsgPositionColumnShots();
+        }else{
+            PrinterGame.printerAlertMsgPositionColumnIncorrect();
+        }
         return Integer.parseInt(sc.nextLine());
     }
 
@@ -41,6 +58,9 @@ public class ReadInputs {
         return Integer.parseInt(sc.nextLine());
     }
 
+    public static void closeScanner() {
+        sc.close();
+    }
 
 
 
