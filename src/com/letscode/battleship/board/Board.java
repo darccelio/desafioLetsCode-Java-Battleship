@@ -2,12 +2,27 @@ package com.letscode.battleship.board;
 
 public class Board {
 
-    final int gridSize = 10;
-    final int numberOfColumns = gridSize + 1;
-    int numberOfCharacters = 1 + numberOfColumns * 4;
+    private int gridSize = 10;
+    public BoardCell[][] playerBoard;
+    public BoardCell[][] enemyBoard;
 
-    public BoardCell[][] playerBoard = new BoardCell[gridSize][gridSize];
+    public Board(){
+        this.gridSize = gridSize;
+        this.playerBoard = new BoardCell[gridSize][gridSize];
+        this.enemyBoard = new BoardCell[gridSize][gridSize];
+    }
 
+    public void build(){
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                playerBoard[i][j] = new BoardCell();
+                enemyBoard[i][j] = new BoardCell();
+            }
+        }
+    }
+
+    final private int numberOfColumns = gridSize + 1;
+    private int numberOfCharacters = 1 + numberOfColumns * 4;
 
     private void printDividerLine(){
         for (int i = 1; i <= numberOfCharacters; i++){
@@ -30,15 +45,6 @@ public class Board {
         System.out.print("\n");
     }
 
-    private void printGridLine(String id){
-        System.out.print("|");
-        printCell(id);
-        for (int i = 0; i < gridSize; i++) {
-            printCell("~");
-        }
-        System.out.print("\n");
-    }
-
     private String[] createColumnLabel(){
         char[] columnLabelChar = new char[gridSize];
         String[] columnLabelString = new String[gridSize];
@@ -48,18 +54,56 @@ public class Board {
         return columnLabelString;
     }
 
-    private void printGridBody(){
+    private void printPlayerGridBody(){
         String[] columnLabel = createColumnLabel();
-        for (String label : columnLabel) {
-            printGridLine(label);
+        for (int i = 0; i < gridSize; i++) {
+            System.out.print("|");
+            printCell(columnLabel[i]);
+            for (int j = 0; j < gridSize; j++) {
+                if (playerBoard[i][j].hasShip() != 0 && playerBoard[i][j].gotFire() != 0) {
+                    printCell("*");
+                }else if (playerBoard[i][j].hasShip() != 0){
+                    printCell("N");
+                }else if (playerBoard[i][j].gotFire() != 0){
+                    printCell("o");
+                }else {
+                    printCell("~");
+                }
+            }
+            System.out.print("\n");
             printDividerLine();
         }
     }
 
-    public void drawBoard(){
+    private void printEnemyGridBody(){
+        String[] columnLabel = createColumnLabel();
+        for (int i = 0; i < gridSize; i++) {
+            System.out.print("|");
+            printCell(columnLabel[i]);
+            for (int j = 0; j < gridSize; j++) {
+                if (enemyBoard[i][j].hasShip() != 0 && enemyBoard[i][j].gotFire() != 0) {
+                    printCell("*");
+                }else if (enemyBoard[i][j].gotFire() != 0){
+                    printCell("o");
+                }else {
+                    printCell("~");
+                }
+            }
+            System.out.print("\n");
+            printDividerLine();
+        }
+    }
+
+    public void drawPlayerBoard(){
         printDividerLine();
         printLineLabel();
         printDividerLine();
-        printGridBody();
+        printPlayerGridBody();
+    }
+    public void drawEnemyBoard(){
+        printDividerLine();
+        printLineLabel();
+        printDividerLine();
+        printEnemyGridBody();
     }
 }

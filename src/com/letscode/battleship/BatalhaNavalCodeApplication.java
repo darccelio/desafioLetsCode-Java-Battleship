@@ -1,14 +1,14 @@
 package com.letscode.battleship;
 
-import com.letscode.battleship.game.Game;
+import com.letscode.battleship.board.Board;
+import com.letscode.battleship.board.BoardCell;
 import com.letscode.battleship.game.GameService;
 import com.letscode.battleship.utils.PrinterGame;
 import com.letscode.battleship.utils.ReadInputs;
 
 public class BatalhaNavalCodeApplication {
-
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
         int result = 0;
         final int CONDITIONAL_STOP = 0;
@@ -30,8 +30,6 @@ public class BatalhaNavalCodeApplication {
 //            GameService.checkResultGame();
 
         }while(result != 0);
-
-
 
     }
 }
