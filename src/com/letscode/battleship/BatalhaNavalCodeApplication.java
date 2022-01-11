@@ -10,12 +10,9 @@ import com.letscode.battleship.utils.ReadInputs;
 public class BatalhaNavalCodeApplication {
 
     public static void main(String[] args) {
-	// write your code here
 
         int result = 0;
         final int CONDITIONAL_STOP = 0;
-
-        Player humPlayer = new HumanPlayer();
 
         int qttTurn = 0;
 
@@ -33,7 +30,7 @@ public class BatalhaNavalCodeApplication {
                 PrinterGame.printerMsgGoodBye();
             }
 
-//            GameService.checkResultGame();
+//            todo GameService.checkResultGame();
 
         }while(result != 0);
 

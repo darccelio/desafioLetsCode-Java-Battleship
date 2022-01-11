@@ -95,7 +95,7 @@ public class PrinterGame {
     }
 
     public static void printerMsgNewGame() {
-        String msgNewGame = "Would you like play again?";
+        String msgNewGame = "\nWould you like play again? \nEnter: \n1 - YES or \n0 - NO";
         System.out.print(msgNewGame);
     }
 

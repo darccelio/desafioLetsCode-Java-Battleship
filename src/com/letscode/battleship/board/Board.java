@@ -2,9 +2,9 @@ package com.letscode.battleship.board;
 
 public class Board {
 
-    final int gridSize = 10;
-    final int numberOfColumns = gridSize + 1;
-    int numberOfCharacters = 1 + numberOfColumns * 4;
+    protected static final int gridSize = 10;
+    protected static final int numberOfColumns = gridSize + 1;
+    protected static int numberOfCharacters = 1 + numberOfColumns * 4;
 
     String[] rowsOfBoard = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
@@ -19,7 +19,7 @@ public class Board {
         return gridSize;
     }
 
-    private void printDividerLine(){
+    private static void printDividerLine(){
         for (int i = 1; i <= numberOfCharacters; i++){
             System.out.print("-");
         }
@@ -30,7 +30,7 @@ public class Board {
         System.out.printf(" %S |", id);
     }
 
-    private void printLineLabel(){
+    private static void printLineLabel(){
         System.out.print("|");
         printCell(" ");
         for (int i=0; i < gridSize; i++){
@@ -40,7 +40,7 @@ public class Board {
         System.out.print("\n");
     }
 
-    private void printGridLine(String id){
+    private static void printGridLine(String id){
         System.out.print("|");
         printCell(id);
         for (int i = 0; i < gridSize; i++) {
@@ -49,7 +49,7 @@ public class Board {
         System.out.print("\n");
     }
 
-    private String[] createColumnLabel(){
+    private static String[] createColumnLabel(){
         char[] columnLabelChar = new char[gridSize];
         String[] columnLabelString = new String[gridSize];
         for (int i = 0; i < gridSize; i++){
@@ -58,7 +58,7 @@ public class Board {
         return columnLabelString;
     }
 
-    private void printGridBody(){
+    private static void printGridBody(){
         String[] columnLabel = createColumnLabel();
         for (String label : columnLabel) {
             printGridLine(label);
@@ -66,7 +66,7 @@ public class Board {
         }
     }
 
-    public void drawBoard(){
+    public static void drawBoard(){
         printDividerLine();
         printLineLabel();
         printDividerLine();

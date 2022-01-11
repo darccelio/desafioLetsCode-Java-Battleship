@@ -34,12 +34,13 @@ public class HumanPlayer extends Player implements IPlayer{
     public void inputShipsOnBoard(int idShip) {
         int flagMsg = 1;
 
-        String positionInterimRow = ReadInputs.readPositionRowShip(flagMsg);
+
 
         //VALIDAÇÃO DE REPETIÇÕES DE BARCOS NA MESMA POSIÇÃO
         do {
             //VALIDAÇÃO ENTRADA DA LINHA
             do {
+                String positionInterimRow = ReadInputs.readPositionRowShip(flagMsg);
                 for (String position : board.getRowsOfBoard()) {
                     if (position.equals(positionInterimRow)) {
                         addressInterimShip = BoardPositionEnum.valueOf(positionInterimRow);
@@ -77,6 +78,7 @@ public class HumanPlayer extends Player implements IPlayer{
 
             } else {
                 System.out.println("Already input for this position. Please, try again");
+                CONDITION_STOP_INPUT = false;
             }
 
         }while(!CONDITION_STOP_INPUT);
@@ -87,17 +89,17 @@ public class HumanPlayer extends Player implements IPlayer{
     public void playShotsFired() {
         int flagMsg =1;
 
-        String positionInterimRow = ReadInputs.readPositionRowShot(flagMsg=1);
-        System.out.println("Coluna entrada do telacdo..........: " + positionInterimRow);
-
         //VALIDAÇÃO DE REPETIÇÕES DE TIROS NA MESMA POSIÇÃO
         do {
             //VALIDAÇÃO ENTRADA DA LINHA
             do{
+                String positionInterimRow = ReadInputs.readPositionRowShot(flagMsg=1);
+                System.out.println("Coluna entrada do telacdo..........: " + positionInterimRow);
+
                 for( String position : board.getRowsOfBoard() ) {
                     if (position.equals(positionInterimRow)) {
                         addressInterimShot = BoardPositionEnum.valueOf(positionInterimRow);
-                        System.out.println("Coluna convertida enum ..........: " + addressInterimShip);
+                        System.out.println("Coluna convertida enum ..........: " + addressInterimShot);
                         CONDITION_STOP = true;
                     }
                 }
@@ -110,7 +112,7 @@ public class HumanPlayer extends Player implements IPlayer{
             //VALIDAÇÃO DA ENTRADA DA COLUNA
             CONDITION_STOP = false;
             int positionInterimColumn = ReadInputs.readPositionColumnShot(flagMsg=1);
-            System.out.println("Coluna ....: "+positionInterimColumn);
+            System.out.println("Coluna ....: "+ positionInterimColumn);
 
             do{
                 if(positionInterimColumn >= 0 &&
@@ -132,6 +134,7 @@ public class HumanPlayer extends Player implements IPlayer{
 
             } else {
                 System.out.println("Already shots for this position. Please, try again");
+                CONDITION_STOP_INPUT = false;
             }
 
         }while(!CONDITION_STOP_INPUT);
