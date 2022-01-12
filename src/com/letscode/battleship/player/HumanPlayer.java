@@ -12,7 +12,6 @@ public class HumanPlayer extends Player implements IPlayer{
 
     protected static BoardPositionEnum addressInterimShip;
     protected static BoardPositionEnum addressInterimShot;
-    protected static BoardPositionEnum addressInterim;
 
     protected static List<Integer> addressRowShips = new ArrayList<>();
     protected static List<Integer> addressColumnShips = new ArrayList<>();
@@ -135,7 +134,6 @@ public class HumanPlayer extends Player implements IPlayer{
             }
 
         }while(!CONDITION_STOP_INPUT);
-
     }
 
     private boolean checkIfAlreadyInputShipsInPosition(String position) {

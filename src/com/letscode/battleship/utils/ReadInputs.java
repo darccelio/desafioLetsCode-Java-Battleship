@@ -11,7 +11,7 @@ public class ReadInputs {
         return sc.nextLine();
     }
 
-    public static Integer readQttInicialShips() {
+    public static int readQttInicialShips() {
         PrinterGame.printerQttInicialShips();
         return Integer.parseInt(sc.nextLine());
     }
@@ -26,20 +26,12 @@ public class ReadInputs {
         return sc.nextLine().toUpperCase();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public static int readPositionColumnShip(int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionColumnShips();
         } else{
             PrinterGame.printerAlertMsgPositionColumnIncorrect();
         }
-=======
-=======
->>>>>>> parent of a344aa2 (ajustando consflitos com a main)
-    public static Integer readPositionColumnShip () {
-        PrinterGame.printerMsgPositionColumnShips();
->>>>>>> parent of a344aa2 (ajustando consflitos com a main)
         return Integer.parseInt(sc.nextLine());
     }
 
@@ -52,20 +44,12 @@ public class ReadInputs {
         return sc.nextLine().toUpperCase();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public static int readPositionColumnShot (int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionColumnShots();
         }else{
             PrinterGame.printerAlertMsgPositionColumnIncorrect();
         }
-=======
-=======
->>>>>>> parent of a344aa2 (ajustando consflitos com a main)
-    public static Integer readPositionColumnShot () {
-        PrinterGame.printerMsgPositionColumnShots();
->>>>>>> parent of a344aa2 (ajustando consflitos com a main)
         return Integer.parseInt(sc.nextLine());
     }
 
@@ -74,6 +58,10 @@ public class ReadInputs {
         return Integer.parseInt(sc.nextLine());
     }
 
+
+    public static void closeScanner() {
+        sc.close();
+    }
 
 
 
