@@ -27,6 +27,8 @@ public class GameService {
 //    protected static List<Integer> addressRowShots = new ArrayList<>();
 //    protected static List<Integer> addressColumnShots = new ArrayList<>();
     protected static HumanPlayer h_player = new HumanPlayer();
+    protected static BotPlayer b_player = new BotPlayer();
+
     private static Board board = new Board();
 
     public static void bootstrapGame(int numberTurn){
@@ -82,6 +84,7 @@ public class GameService {
             Ship ship = new Ship(idShip);
 //            System.out.println("Num idShip na gameService "+ idShip);
             h_player.inputShipsOnBoard(idShip, board);
+            b_player.inputShipsOnBoard(idShip, board);
         }
 
     }
@@ -92,9 +95,9 @@ public class GameService {
         for (int i=0; i < qttShips; i++) {
             idShot = i+1;
             h_player.playShotsFired(idShot, board);
+            b_player.playShotsFired(idShot, board);
         }
     }
-
 
     public static String checkResultGame(int index) {
 

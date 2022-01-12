@@ -2,6 +2,7 @@ package com.letscode.battleship.player;
 
 import com.letscode.battleship.board.Board;
 import com.letscode.battleship.enums.BoardPositionEnum;
+import com.letscode.battleship.utils.PrinterGame;
 import com.letscode.battleship.utils.ReadInputs;
 
 import java.util.ArrayList;
@@ -18,8 +19,6 @@ public class HumanPlayer extends Player implements IPlayer{
 
     protected static List<Integer> addressRowShots = new ArrayList<>();
     protected static List<Integer> addressColumnShots = new ArrayList<>();
-
-    private Board board = new Board();
 
     private boolean CONDITION_STOP = false;
     private boolean CONDITION_STOP_INPUT = false;
@@ -93,12 +92,17 @@ public class HumanPlayer extends Player implements IPlayer{
     private void placeShip(int row, int column, Board board, int idShip, int cont) {
 //        System.out.println("Qtd impressao Board"+cont);
         board.playerBoard[row][column].setShip(idShip);
+        PrinterGame.printerTitleBoard(0);
         board.drawPlayerBoard();
     }
 
     @Override
     public void playShotsFired(int idShot, Board board) {
         int flagMsg =1;
+
+        PrinterGame.printerTitleBoard(1);
+        board.drawEnemyBoard();
+
         String positionInterimRow = ReadInputs.readPositionRowShot(flagMsg=1);
         System.out.println("Coluna entrada do telaclado..........: " + positionInterimRow);
 
@@ -109,7 +113,7 @@ public class HumanPlayer extends Player implements IPlayer{
                 for( String position : board.getRowsOfBoard() ) {
                     if (position.equals(positionInterimRow)) {
                         addressInterimShot = BoardPositionEnum.valueOf(positionInterimRow);
-                        System.out.println("Coluna convertida enum ..........: " + addressInterimShip);
+                        System.out.println("Coluna convertida enum ..........: " + addressInterimShot);
                         CONDITION_STOP = true;
                     }
                 }
@@ -153,6 +157,7 @@ public class HumanPlayer extends Player implements IPlayer{
     private void fire(int row, int column, Board board, int idShot, int cont) {
 //        System.out.println("Qtd impressao Board"+cont);
         board.enemyBoard[row][column].setFire(idShot);
+        PrinterGame.printerTitleBoard(1);
         board.drawEnemyBoard();
     }
 

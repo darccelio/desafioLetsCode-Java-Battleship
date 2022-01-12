@@ -36,7 +36,7 @@ public class PrinterGame {
     public static void printerTitlePositionShots(){
         String PRINTER_MSG_POSITION_SHOTS= "" +
                 "\n_________________________________________________\n\n" +
-                "- TRY TO HIT THE OPPONENT SHIPS - \n\n" +
+                "- TRY TO HIT THE OPPONENT'S SHIPS - \n\n" +
                 "_________________________________________________\n";
         System.out.println(PRINTER_MSG_POSITION_SHOTS);
     }
@@ -102,6 +102,24 @@ public class PrinterGame {
     public static void printerMsgGoodBye() {
         String msgGoodBye = "Thanks for has played BattleShip!\n\n";
         System.out.println(msgGoodBye);
+    }
+
+    public static void printerTitleBoard(int flag) {
+        String titleHumanPlayer = ""+
+                "\n_________________________________________________\n" +
+                "Human Player's Board\n" +
+                "_________________________________________________\n";
+
+        String titleBotPlayer = ""+
+                "\n_________________________________________________\n" +
+                "Bot Player's Board\n" +
+                "_________________________________________________\n";
+
+        if(flag == 0) {
+            System.out.println(titleHumanPlayer);
+        }else{
+            System.out.println(titleBotPlayer);
+        }
     }
 
 //    public static void mathOfGame(int numberTurn) {
