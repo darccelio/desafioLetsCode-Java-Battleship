@@ -6,10 +6,21 @@ public class Board {
     public BoardCell[][] playerBoard;
     public BoardCell[][] enemyBoard;
 
+    String[] rowsOfBoard = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+
+
     public Board(){
         this.gridSize = gridSize;
         this.playerBoard = new BoardCell[gridSize][gridSize];
         this.enemyBoard = new BoardCell[gridSize][gridSize];
+    }
+
+    public String[] getRowsOfBoard() {
+        return rowsOfBoard;
+    }
+
+    public int getGridSize() {
+        return gridSize;
     }
 
     public void build(){
@@ -100,6 +111,7 @@ public class Board {
         printDividerLine();
         printPlayerGridBody();
     }
+
     public void drawEnemyBoard(){
         printDividerLine();
         printLineLabel();
