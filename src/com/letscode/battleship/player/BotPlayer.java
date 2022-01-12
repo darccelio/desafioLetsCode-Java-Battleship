@@ -1,5 +1,7 @@
 package com.letscode.battleship.player;
 
+import com.letscode.battleship.board.Board;
+
 import java.util.List;
 
 public class BotPlayer extends Player implements IPlayer{
@@ -8,10 +10,10 @@ public class BotPlayer extends Player implements IPlayer{
     }
 
     @Override
-    public void inputShipsOnBoard(int idShip) {
+    public void inputShipsOnBoard(int idShip, Board board) {
     }
 
     @Override
-    public void playShotsFired() {
+    public void playShotsFired(int idShot, Board board) {
     }
 }

@@ -1,18 +1,16 @@
 package com.letscode.battleship.game;
 
-import com.letscode.battleship.enums.BoardPositionEnum;
+import com.letscode.battleship.board.Board;
 import com.letscode.battleship.enums.TypeOfPlayerEnum;
 import com.letscode.battleship.player.BotPlayer;
 import com.letscode.battleship.player.HumanPlayer;
 import com.letscode.battleship.player.Player;
 
-
+import com.letscode.battleship.ship.Ship;
 import com.letscode.battleship.utils.PrinterGame;
 import com.letscode.battleship.utils.ReadInputs;
 
-import java.util.ArrayList;
 import java.util.List;
-
 
 public class GameService {
 
@@ -29,6 +27,7 @@ public class GameService {
 //    protected static List<Integer> addressRowShots = new ArrayList<>();
 //    protected static List<Integer> addressColumnShots = new ArrayList<>();
     protected static HumanPlayer h_player = new HumanPlayer();
+    private static Board board = new Board();
 
     public static void bootstrapGame(int numberTurn){
 
@@ -43,6 +42,8 @@ public class GameService {
             nameHumanPlayer = ReadInputs.readInputName();
             Player humanPlayer = new HumanPlayer(nameHumanPlayer, TypeOfPlayerEnum.PLAYER.getDescription());
             players[1] = humanPlayer;
+
+            board.build();
         }
 
         Game game = new Game();
@@ -54,10 +55,8 @@ public class GameService {
 
         qttShips = ReadInputs.readQttInicialShips();
         System.out.println();
-//        Board.drawPlayerBoard();
 
-//        PrinterGame.printerInitialBoard();
-
+        board.drawPlayerBoard();
 
         // TODO: 04/01/2022  instanciação do game
         //Imprimir o board para que o jogador informe a posição do navio
@@ -80,16 +79,19 @@ public class GameService {
 
         for (int i=0; i < qttShips; i++) {
             idShip = i+1;
-//            Ship ship = new Ship(idShip);
-            h_player.inputShipsOnBoard(idShip);
+            Ship ship = new Ship(idShip);
+//            System.out.println("Num idShip na gameService "+ idShip);
+            h_player.inputShipsOnBoard(idShip, board);
         }
 
     }
 
     public static void positionShots() {
         PrinterGame.printerTitlePositionShots();
+        int idShot = 0;
         for (int i=0; i < qttShips; i++) {
-            h_player.playShotsFired();
+            idShot = i+1;
+            h_player.playShotsFired(idShot, board);
         }
     }
 

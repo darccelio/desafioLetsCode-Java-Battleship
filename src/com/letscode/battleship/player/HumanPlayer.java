@@ -24,25 +24,30 @@ public class HumanPlayer extends Player implements IPlayer{
     private boolean CONDITION_STOP = false;
     private boolean CONDITION_STOP_INPUT = false;
 
+    private static int contShip = 0;
+    private static int contShot = 0;
+
     public HumanPlayer() {}
     public HumanPlayer(String namePlayer, String typePlayer) {
         super(namePlayer, typePlayer);
     }
 
     @Override
-    public void inputShipsOnBoard(int idShip) {
+    public void inputShipsOnBoard(int idShip, Board board) {
         int flagMsg = 1;
-
-        String positionInterimRow = ReadInputs.readPositionRowShip(flagMsg);
 
         //VALIDAÇÃO DE REPETIÇÕES DE BARCOS NA MESMA POSIÇÃO
         do {
+            String positionInterimRow = ReadInputs.readPositionRowShip(flagMsg=1);
             //VALIDAÇÃO ENTRADA DA LINHA
             do {
+
+
                 for (String position : board.getRowsOfBoard()) {
                     if (position.equals(positionInterimRow)) {
                         addressInterimShip = BoardPositionEnum.valueOf(positionInterimRow);
                         CONDITION_STOP = true;
+                        break;
                     }
                 }
                 if (!CONDITION_STOP) {
@@ -74,6 +79,9 @@ public class HumanPlayer extends Player implements IPlayer{
                 addressColumnShips.add(positionInterimColumn);
                 CONDITION_STOP_INPUT = true;
 
+//                System.out.println("Numero idShip"+ idShip);
+                this.placeShip(addressRowShips.get(contShip), addressColumnShips.get(contShip), board, idShip, contShip);
+                contShip++;
             } else {
                 System.out.println("Already input for this position. Please, try again");
             }
@@ -82,12 +90,17 @@ public class HumanPlayer extends Player implements IPlayer{
 
     }
 
-    @Override
-    public void playShotsFired() {
-        int flagMsg =1;
+    private void placeShip(int row, int column, Board board, int idShip, int cont) {
+//        System.out.println("Qtd impressao Board"+cont);
+        board.playerBoard[row][column].setShip(idShip);
+        board.drawPlayerBoard();
+    }
 
+    @Override
+    public void playShotsFired(int idShot, Board board) {
+        int flagMsg =1;
         String positionInterimRow = ReadInputs.readPositionRowShot(flagMsg=1);
-        System.out.println("Coluna entrada do telacdo..........: " + positionInterimRow);
+        System.out.println("Coluna entrada do telaclado..........: " + positionInterimRow);
 
         //VALIDAÇÃO DE REPETIÇÕES DE TIROS NA MESMA POSIÇÃO
         do {
@@ -128,12 +141,19 @@ public class HumanPlayer extends Player implements IPlayer{
                 addressRowShots.add(addressInterimShot.getPosition());
                 addressColumnShots.add(positionInterimColumn);
                 CONDITION_STOP_INPUT = true;
-
+                this.fire(addressRowShots.get(contShot), addressColumnShots.get(contShot), board, idShot, contShot);
+                contShot++;
             } else {
                 System.out.println("Already shots for this position. Please, try again");
             }
 
         }while(!CONDITION_STOP_INPUT);
+    }
+
+    private void fire(int row, int column, Board board, int idShot, int cont) {
+//        System.out.println("Qtd impressao Board"+cont);
+        board.enemyBoard[row][column].setFire(idShot);
+        board.drawEnemyBoard();
     }
 
     private boolean checkIfAlreadyInputShipsInPosition(String position) {
@@ -162,5 +182,13 @@ public class HumanPlayer extends Player implements IPlayer{
         return shotsFired;
     }
 
+    public int getAddressRowShips(int i) {
+        int row = addressRowShips.get(i);
+        return row;
+    }
 
+    public int getAddressColumnShips(int i) {
+        int column = addressColumnShips.get(i);
+        return column;
+    }
 }
