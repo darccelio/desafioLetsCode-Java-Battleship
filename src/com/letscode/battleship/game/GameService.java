@@ -19,6 +19,7 @@ public class GameService {
 //    protected static BoardPositionEnum addressInterimShot;
 
     protected static Player[] players = new Player[2];
+    public static Game game;
 
 
 //    protected static List<Integer> addressRowShips = new ArrayList<>();
@@ -26,6 +27,8 @@ public class GameService {
 //
 //    protected static List<Integer> addressRowShots = new ArrayList<>();
 //    protected static List<Integer> addressColumnShots = new ArrayList<>();
+
+
     protected static HumanPlayer h_player = new HumanPlayer();
     protected static BotPlayer b_player = new BotPlayer();
 
@@ -34,6 +37,7 @@ public class GameService {
     public static void bootstrapGame(int numberTurn){
 
         String nameHumanPlayer;
+        game = new Game();
 
         if(numberTurn == 1) {
             PrinterGame.printerWelcomeMsg();
@@ -46,9 +50,10 @@ public class GameService {
             players[1] = humanPlayer;
 
             board.build();
+
+            game.setBoard(board);
         }
 
-        Game game = new Game();
         game.setIdTurn(numberTurn);
         game.setBot(players[0]);
         game.setPlayer(players[1]);
@@ -99,18 +104,11 @@ public class GameService {
         }
     }
 
-    public static String checkResultGame(int index) {
-
-        // TODO: 06/01/2022 verificar resultado PositionShip x PositionShot
-
-        return "resultado ";
+    public static void checkResultGame(int numberTurn) {
+        String resultado = game.checkResultGameTeste(numberTurn);
+        System.out.println(resultado);
     }
 
-    public static void whoWin() {
-
-        // TODO: 06/01/2022 verificar quem foi o vencedor
-
-    }
 
 
 

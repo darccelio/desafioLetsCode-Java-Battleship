@@ -10,7 +10,6 @@ public class Player {
     protected List<String> shipsPosition = new ArrayList<>();
     protected List<String> shotsFired = new ArrayList<>();
 
-
     protected static List<Integer> addressRowShips = new ArrayList<>();
     protected static List<Integer> addressColumnShips = new ArrayList<>();
 
@@ -23,6 +22,10 @@ public class Player {
     }
 
     public Player() {};
+
+    public String getNamePlayer() {
+        return namePlayer;
+    }
 
     public List<String> getShipsPosition() {
         return shipsPosition;

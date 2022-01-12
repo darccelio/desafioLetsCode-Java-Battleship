@@ -8,7 +8,6 @@ public class Board {
 
     String[] rowsOfBoard = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
 
-
     public Board(){
         this.gridSize = gridSize;
         this.playerBoard = new BoardCell[gridSize][gridSize];

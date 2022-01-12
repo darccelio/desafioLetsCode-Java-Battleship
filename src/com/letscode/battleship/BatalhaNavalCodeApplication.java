@@ -20,14 +20,14 @@ public class BatalhaNavalCodeApplication {
             GameService.bootstrapGame(qttTurn);
             GameService.positionShips();
             GameService.positionShots();
-            GameService.whoWin();
+            GameService.checkResultGame(qttTurn);
+            System.out.println();
             result = ReadInputs.readDecisionPlayerNewGame();
 
             if(result == CONDITIONAL_STOP) {
                 PrinterGame.printerMsgGoodBye();
             }
 
-//            GameService.checkResultGame();
 
         }while(result != 0);
 
