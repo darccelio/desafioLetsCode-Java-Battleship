@@ -11,20 +11,20 @@ import java.util.List;
 
 public class HumanPlayer extends Player implements IPlayer{
 
-    protected static BoardPositionEnum addressInterimShip;
-    protected static BoardPositionEnum addressInterimShot;
+    protected BoardPositionEnum addressInterimShip;
+    protected BoardPositionEnum addressInterimShot;
 
-    protected static List<Integer> addressRowShips = new ArrayList<>();
-    protected static List<Integer> addressColumnShips = new ArrayList<>();
+    protected List<Integer> addressRowShips = new ArrayList<>();
+    protected List<Integer> addressColumnShips = new ArrayList<>();
 
-    protected static List<Integer> addressRowShots = new ArrayList<>();
-    protected static List<Integer> addressColumnShots = new ArrayList<>();
+    protected List<Integer> addressRowShots = new ArrayList<>();
+    protected List<Integer> addressColumnShots = new ArrayList<>();
 
     private boolean CONDITION_STOP = false;
     private boolean CONDITION_STOP_INPUT = false;
 
-    private static int contShip = 0;
-    private static int contShot = 0;
+    private int contShip = 0;
+    private int contShot = 0;
 
     public HumanPlayer() {}
     public HumanPlayer(String namePlayer, String typePlayer) {
