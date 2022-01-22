@@ -4,67 +4,61 @@ import java.util.Scanner;
 
 public class ReadInputs {
 
-    private static Scanner sc = new Scanner(System.in);
+    public static String readUserInput() {
+        Scanner sc = new Scanner(System.in);
+        String userInput = sc.nextLine();
+        sc.close();
+        return userInput;
+    }
 
     public static String readInputName () {
         PrinterGame.printerMsgInputPlayer();
-        return sc.nextLine();
+        return readUserInput();
     }
 
     public static int readQttInicialShips() {
         PrinterGame.printerQttInicialShips();
-        return Integer.parseInt(sc.nextLine());
+        return Integer.parseInt(readUserInput());
     }
 
     public static String readPositionRowShip (int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionRowShips();
-        }else{
+        }else {
             PrinterGame.printerAlertMsgPositionRowIncorrect();
         }
-
-        return sc.nextLine().toUpperCase();
+        return readUserInput().toUpperCase();
     }
 
     public static int readPositionColumnShip(int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionColumnShips();
-        } else{
+        }else {
             PrinterGame.printerAlertMsgPositionColumnIncorrect();
         }
-        return Integer.parseInt(sc.nextLine());
+        return Integer.parseInt(readUserInput());
     }
 
     public static String readPositionRowShot(int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionRowShots();
-        }else{
+        }else {
             PrinterGame.printerAlertMsgPositionRowIncorrect();
         }
-        return sc.nextLine().toUpperCase();
+        return readUserInput().toUpperCase();
     }
 
     public static int readPositionColumnShot (int flag) {
         if(flag==1) {
             PrinterGame.printerMsgPositionColumnShots();
-        }else{
+        }else {
             PrinterGame.printerAlertMsgPositionColumnIncorrect();
         }
-        return Integer.parseInt(sc.nextLine());
+        return Integer.parseInt(readUserInput());
     }
 
     public static int readDecisionPlayerNewGame() {
         PrinterGame.printerMsgNewGame();
-        return Integer.parseInt(sc.nextLine());
+        return Integer.parseInt(readUserInput());
     }
-
-
-    public static void closeScanner() {
-        sc.close();
-    }
-
-
-
-
-
 }
